@@ -89,7 +89,7 @@ $(document).ready(function(){
             },
             {
                 extend: 'print',
-                title: 'HIFI FINTECH Retailers Detail',
+                title: 'HIFI FINTECH Retailer Details',
                 exportOptions: {
                     columns: [ 0, 1, 2, 3, 4, 5 ]
                 },

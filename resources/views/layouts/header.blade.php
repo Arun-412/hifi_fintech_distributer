@@ -26,3 +26,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 </head>
 <body>
+    <!-- @if(Auth::check())
+    @include('layouts.menubar')
+    @endif -->

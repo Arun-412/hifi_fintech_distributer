@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<a href="/retailers">Retailers</a>
+<a href="/retailers"><button type="button">Retailers</button></a>
 @if(session('failed'))
     <div class="alert alert-danger"> {{ session('failed') }}</div>
 @endif

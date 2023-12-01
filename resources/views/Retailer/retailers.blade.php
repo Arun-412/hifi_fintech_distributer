@@ -6,6 +6,7 @@
 @if(session('failed'))
     <div class="alert alert-danger"> {{ session('failed') }}</div>
 @endif
+<a href="dashboard"><button type="button">Back</button></a>
 <form action="register_retailer" method="post">
 @csrf
     <input type="text" value="{{ old('shop_name') }}" name="shop_name"  id="shop_name" placeholder="Enter Shop Name">
@@ -32,7 +33,7 @@
                 <th>Mobile Number</th>
                 <th>Email</th>
                 <th>KYC Status</th>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
             </tr>
         </thead>
         <tbody>
@@ -51,7 +52,7 @@
                 @else
                 <td>Pending</td>
                 @endif
-                <td><button type="button">Deactivate</button><button type="button">Edit</button><button type="button">Delete</button></td>
+                <!-- <td><button type="button">Deactivate</button><button type="button">Edit</button><button type="button">Delete</button></td> -->
             </tr>
         @endforeach
         @else
@@ -69,7 +70,7 @@
                 @else
                 <td>Pending</td>
                 @endif
-                <td><button type="button">Deactivate</button><button type="button">Edit</button><button type="button">Delete</button></td>
+                <!-- <td><button type="button">Deactivate</button><button type="button">Edit</button><button type="button">Delete</button></td> -->
             </tr>
         @endforeach
         @endif
