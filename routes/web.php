@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RetailerController;
+use App\Http\Controllers\CommissionController;
 
 Route::get('/verify', function () { return view('auth.OTP'); });
 
@@ -17,7 +18,11 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () { return view('dashboard'); });
     Route::post('/logout', [UserController::class, 'Logout'])->name('logout');
+
     Route::get('/retailers', [RetailerController::class, 'Retailers'])->name('retailers');
     Route::post('/register_retailer', [RetailerController::class, 'New_Retailer'])->name('register_retailer');
+
+    Route::get('/commissions', [CommissionController::class, 'commissions'])->name('commissions');
+    Route::post('/register_commission', [CommissionController::class, 'New_Commissions'])->name('register_commission');
 });
 

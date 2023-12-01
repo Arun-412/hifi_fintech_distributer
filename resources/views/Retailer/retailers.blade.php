@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+<div class="text-center alert alert-success" style="display:none;"></div>
+<div class="alert alert-danger" style="display:none;"></div>
 @if(session('dataN'))
     <div class="text-center alert alert-success">New Retailer Created Successfully</div>
 @endif
@@ -52,7 +54,7 @@
                 @else
                 <td>Pending</td>
                 @endif
-                <!-- <td><button type="button">Deactivate</button><button type="button">Edit</button><button type="button">Delete</button></td> -->
+                <!-- <td><button type="button">Deactivate</button><button id="edit_btn" type="button">Edit</button><button type="button">Delete</button></td> -->
             </tr>
         @endforeach
         @else
@@ -70,7 +72,7 @@
                 @else
                 <td>Pending</td>
                 @endif
-                <!-- <td><button type="button">Deactivate</button><button type="button">Edit</button><button type="button">Delete</button></td> -->
+                <!-- <td><button type="button">Deactivate</button><button id="edit_btn" type="button">Edit</button><button type="button">Delete</button></td> -->
             </tr>
         @endforeach
         @endif
