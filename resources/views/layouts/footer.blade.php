@@ -1,6 +1,14 @@
-<script type="script" src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
-<script type="script" src="{{asset('assets/js/bootstrap.js')}}"></script>
+@if(Auth::check())     
+</div>
+</div>
+</section>
+@endif
+
 <script type="script" src="{{asset('assets/js/popper.min.js')}}"></script>
+<script type="script" src="{{asset('assets/js/bootstrap.js')}}"></script>
+<script type="script" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script type="script" src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
+
 <script src=" {{URL::asset('assets/js/script.js')}}"></script>
 
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
