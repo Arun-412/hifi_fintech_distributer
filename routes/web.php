@@ -24,5 +24,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/commissions', [CommissionController::class, 'commissions'])->name('commissions');
     Route::post('/register_commission', [CommissionController::class, 'New_Commissions'])->name('register_commission');
+
+    Route::post('/service_list', [CommissionController::class, 'services'])->name('service_list');
+    // Route::get('/services', function () { return view('commission.services'); })->name('services');
+    Route::post('/register_services', [CommissionController::class, 'New_Services'])->name('register_services');
 });
 

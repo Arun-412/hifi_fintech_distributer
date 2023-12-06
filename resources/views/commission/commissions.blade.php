@@ -43,9 +43,9 @@
                 @endif
                 <td>
                     <button type="button">Deactivate</button>
-                    <form action="services">
+                    <form action="{{route('services')}}" method="get">
                         <input type="hidden" name="plan_code" value="{{$v->window_code}}">
-                        <button type="button">View</button>
+                        <button type="submit">View</button>
                     </form>
                     <button type="button">Delete</button>
                 </td>
@@ -64,9 +64,10 @@
                 @endif
                 <td>
                     <button type="button">Deactivate</button>
-                    <form action="services">
+                    <form action="service_list" method="post">
+                        @csrf
                         <input type="hidden" name="plan_code" value="{{$v->window_code}}">
-                        <button type="button">View</button>
+                        <button type="submit">View</button>
                     </form>
                     <button type="button">Delete</button>
                 </td>

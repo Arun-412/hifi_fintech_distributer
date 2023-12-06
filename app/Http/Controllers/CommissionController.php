@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\window;
+use App\Models\amities;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,60 @@ class CommissionController extends Controller
                     return redirect('commissions')->with('dataN',$window);
                 }else{
                     return back()->with("failed",'Unable to create commission plan');
+                }
+            }
+        }
+        catch(\Throwable $e){
+            return back()->with("failed",$e->getmessage());
+        }
+    }
+
+    public function services(Request $request){
+        try{
+            $validate = Validator::make($request->all(), [
+                'plan_code' => 'required|string|min:3|max:40',
+            ],);
+            if($validate->fails()){
+                return back()->withInput()->withErrors($validate);
+            }else{
+                $services = amities::where(['amiti_opened_by'=>$request->plan_code])->orderBy('id', 'DESC')->get();
+                $data['plan_code'] = $request->plan_code;
+                $data['services'] = $services;
+                // return $data;
+                // return view('commission.services',compact('var1', 'var2'));
+                // return redirect('services')->with('a',$data);
+                return view('commission.services',['a'=>$data]);
+            }
+        }
+        catch(\Throwable $e){
+            return back()->with("failed",$e->getmessage());
+        }
+    }
+
+    public function New_Services(Request $request){
+        try{
+            $validate = Validator::make($request->all(), [
+                'commission_plan'=> 'required|string|max:40',
+                'service_plan_name' => 'required|string|min:3|max:40',
+            ],);
+            if($validate->fails()){
+                return back()->withInput()->withErrors($validate);
+            }else{
+                $amities_access = amities::create([
+                    'amiti_code' => "HFD".Str::random(2)."SPD".Str::random(2),
+                    'amiti_name' => $request->service_plan_name,
+                    'amiti_status' => "HFY",
+                    'amiti_mode' => "HF11",
+                    'amiti_opened_by' => $request->commission_plan,
+                ]);
+                if($amities_access){
+                    $amities = amities::where(['amiti_opened_by'=>$request->commission_plan])->orderBy('id', 'DESC')->get();
+                    $data['plan_code'] = $request->commission_plan;
+                    $data['amities'] = $amities;
+                    // return $data;
+                    return redirect('services')->with('dataN',$data);
+                }else{
+                    return back()->with("failed",'Unable to create service plan');
                 }
             }
         }
