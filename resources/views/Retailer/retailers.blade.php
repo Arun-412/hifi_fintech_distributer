@@ -23,7 +23,7 @@
     @error('email')
     <span class="text-danger">{{$message}}</span>
     @enderror
-    <input type="submit" value="Create User">
+    <input type="submit" value="Create User"> 
 </form>
 
 <table id="retailers_list" class="display nowrap" style="width:100%">
